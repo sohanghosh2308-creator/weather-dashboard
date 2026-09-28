@@ -1,0 +1,161 @@
+/* ==========================================================================
+   DYNAMIC WEATHER ATMOSPHERE EFFECT STYLES
+   ========================================================================== */
+
+.weather-atmosphere-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1; /* Sits right above live map canvas and beneath UI content */
+  overflow: hidden;
+}
+
+.atmosphere-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   1. CLEAR / SUNNY ATMOSPHERE (Radiant Sunburst & Lens Flare)
+   ========================================================================== */
+
+.sunbeam-radiance-layer {
+  position: absolute;
+  top: -120px;
+  right: -100px;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+}
+
+.sun-core-glow {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.45) 0%, rgba(245, 158, 11, 0.25) 45%, transparent 75%);
+  filter: blur(40px);
+  animation: sun-pulse 6s infinite alternate ease-in-out;
+}
+
+.sun-flare {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+
+.sun-flare.flare-1 {
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(252, 211, 77, 0.15) 0%, transparent 65%);
+  animation: flare-rotate 35s infinite linear;
+}
+
+.sun-flare.flare-2 {
+  width: 1100px;
+  height: 1100px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+}
+
+@keyframes sun-pulse {
+  0% { transform: scale(0.92); opacity: 0.7; }
+  100% { transform: scale(1.08); opacity: 1; }
+}
+
+@keyframes flare-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* ==========================================================================
+   2. RAIN & THUNDER ATMOSPHERE
+   ========================================================================== */
+
+.storm-vignette-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.rain-cloud-darkness {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 45vh;
+  background: linear-gradient(to bottom, rgba(3, 7, 18, 0.75) 0%, rgba(15, 23, 42, 0.4) 60%, transparent 100%);
+}
+
+.thunder-flicker-ambient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 60% 20%, rgba(192, 132, 252, 0.25) 0%, transparent 80%);
+  opacity: 0;
+  animation: thunder-ambient-strike 9s infinite ease-out;
+}
+
+@keyframes thunder-ambient-strike {
+  0%, 94%, 98%, 100% { opacity: 0; }
+  95% { opacity: 0.85; }
+  96% { opacity: 0.2; }
+  97% { opacity: 0.7; }
+}
+
+/* ==========================================================================
+   3. SNOW ATMOSPHERE
+   ========================================================================== */
+
+.snow-frost-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.frost-corner-vignette {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(circle at top left, rgba(186, 230, 253, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at top right, rgba(186, 230, 253, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at bottom, rgba(125, 211, 252, 0.12) 0%, transparent 50%);
+}
+
+/* ==========================================================================
+   4. CLOUDS & MIST ATMOSPHERE
+   ========================================================================== */
+
+.clouds-mist-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cloud-sheet {
+  position: absolute;
+  width: 200%;
+  height: 100%;
+  top: 0;
+  left: -50%;
+  background: radial-gradient(ellipse at 50% 30%, rgba(148, 163, 184, 0.12) 0%, rgba(30, 41, 59, 0.05) 50%, transparent 80%);
+  filter: blur(35px);
+}
+
+.cloud-sheet.sheet-1 {
+  animation: cloud-drift 45s infinite linear;
+}
+
+.cloud-sheet.sheet-2 {
+  top: 20%;
+  animation: cloud-drift 60s infinite linear reverse;
+  opacity: 0.7;
+}
+
+@keyframes cloud-drift {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(15%); }
+  100% { transform: translateX(0); }
+}
