@@ -1,7 +1,9 @@
 # Meteorological Weather Dashboard using API & Geolocation
 **Assignment 4 Submission & Implementation**
 
-A professional meteorological weather application developed with **React 19 & Vite**, integrating the **OpenWeatherMap API**, asynchronous data fetching via React lifecycle hooks (`useEffect`, `useState`), dynamic weather-based color grading, cartographic map-patterned background UI, and automatic physical position resolution via the browser's HTML5 **Geolocation API**.
+🌐 **Live Deployed Application**: [https://sohan231001102178.github.io/weather-dashboard/](https://sohan231001102178.github.io/weather-dashboard/)
+
+A professional meteorological weather application developed with **React 19 & Vite**, integrating real-time meteorological feeds, asynchronous data fetching via React lifecycle hooks (`useEffect`, `useState`), dynamic weather-based color grading, a living atmospheric sky background, and automatic physical position resolution via the browser's HTML5 **Geolocation API**.
 
 ---
 
